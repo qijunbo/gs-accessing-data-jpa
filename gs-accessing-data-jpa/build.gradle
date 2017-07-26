@@ -18,14 +18,17 @@ jar {
 }
 
 repositories {
+	maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+	maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
     mavenCentral()
-    maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+    
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
     testCompile("org.springframework.boot:spring-boot-starter-test")

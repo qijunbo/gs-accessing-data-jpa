@@ -1,5 +1,5 @@
 // tag::sample[]
-package hello;
+package com.example.jpa.repository;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

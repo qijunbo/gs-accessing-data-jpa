@@ -1,4 +1,4 @@
-package hello;
+package com.example.jpa.repository;
 
 import java.util.List;
 
