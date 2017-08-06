@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content />
+<meta name="author" content />
+<title>Getting Started with Ionic</title>
+<link href="css/bootstrap.css" rel="stylesheet" />
+<link href="css/dashboard.css" rel="stylesheet" />
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-1.11.2.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">
+	<h2>Getting Started with Ionic</h2>
+	<h3>Preparation——npm configuration</h3>
+	You may not able to visit <a href="https://registry.npmjs.org" target="_blank">https://registry.npmjs.org</a>, so you can try <a href="https://registry.npmjs.org" target="_blank">http://</a> instead. if it works, you can disable the SSL, and set the registry value to http.
+	<pre>
+	npm config set strict-ssl  false
+	npm config set registry    http://registry.npmjs.org </pre>
+	<h3>Install Ionic</h3>
+	<pre>
+	npm install -g cordova ionic gulp
+	npm install -g cordova   #(optional) </pre> 
+	
+	<h3>Start a project</h3>
+	
+	<pre>
+	$ ionic start myapp [template] </pre>
+	<p> Starter templates can either come from a named template, a Github repo, a Codepen, or a local directory. A starter template is what becomes the www directory within the Cordova project.
+	<br/>
+	Named template starters:
+	<code>tabs</code> (Default), <code>sidemenu</code>, <code>maps</code>, <code>salesforce</code>, <code>complex-list</code>, <code>blank</code>
+	</p>	
+	<pre>
+	ionic start myApp tabs</pre> 
+	<p> you can also use any of the following style to get started
+	<pre>
+	ionic start myApp sidemenu
+	ionic start myApp maps
+	ionic start myApp salesforce
+	ionic start myApp complex-list
+	ionic start myApp blank	</pre>
+	</p>
+	<h3>Run it</h3>
+	<pre>
+	$ cd myApp
+	$ ionic platform add android
+	$ ionic serve  (you will be asked to select a IP address if you have multi IP address)
+	$ ionic build android
+	$ ionic emulate android</pre> 
+	<h3>Reference</h3>
+	<p>
+	
+	<a href="http://ionicframework.com/getting-started/">http://ionicframework.com/getting-started/</a> <br/>
+	<a href="https://www.npmjs.com/package/ionic">https://www.npmjs.com/package/ionic</a>
+	</p>
+</div>
+
+</body>
+
+</html>

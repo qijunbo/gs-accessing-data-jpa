@@ -5,8 +5,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,19 +24,19 @@ public class CustomerController {
 
 	@RequestMapping(method = POST)
 	public @ResponseBody Customer create(@RequestBody Customer customer) {
-
-		Date createDate = new Date();
-  
 		customer = repository.save(customer);
 		return customer;
 	}
 
 
-	@RequestMapping(method = PUT)
-	public @ResponseBody boolean update(@RequestBody Customer customer) {
-
+	@RequestMapping(value = "/{id}", method = PUT)
+	public @ResponseBody boolean update(@PathVariable long id, @RequestBody Customer customer) {
+	
+		if(id != customer.getId()){
+			return false;
+		}
+		
 		if (repository.exists(customer.getId())) {
-		 
 			customer = repository.save(customer);
 			return true;
 		}
