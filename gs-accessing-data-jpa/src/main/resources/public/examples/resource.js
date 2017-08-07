@@ -2,8 +2,7 @@
 
 var app = angular.module('dream',  ['ngResource']);
 
-var appContext = "http://localhost:8080/" ;
-
+var appContext = "../" ;
 
 	
 app.controller('costomerCtl', function($scope,$resource) {
