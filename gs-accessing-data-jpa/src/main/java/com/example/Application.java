@@ -1,5 +1,8 @@
 package com.example;
 
+
+import java.sql.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +30,11 @@ public class Application  implements CommandLineRunner{
 	public void run(String... strings) throws Exception {
 		
 		// save a couple of customers
-		repository.save(new Customer("Jack", "Bauer"));
-		repository.save(new Customer("Chloe", "O'Brian"));
-		repository.save(new Customer("Kim", "Bauer"));
-		repository.save(new Customer("David", "Palmer"));
-		repository.save(new Customer("Michelle", "Dessler"));
+		repository.save(new Customer("Jack", "Bauer", "Jack@builder.com", null ));
+		repository.save(new Customer("Chloe", "O'Brian", "Chloe@builder.com", null));
+		repository.save(new Customer("Kim", "Bauer", "Kim@builder.com", null));
+		repository.save(new Customer("David", "Palmer", "David@builder.com", null));
+		repository.save(new Customer("Michelle", "Dessler", "Michelle@builder.com", null));
 
 		// fetch all customers
 		log.info("Customers found with findAll():");

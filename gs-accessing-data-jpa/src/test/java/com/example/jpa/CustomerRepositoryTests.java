@@ -41,7 +41,7 @@ public class CustomerRepositoryTests {
 
     @Test
     public void testFindByLastName() {
-        Customer customer = new Customer("first", "last");
+        Customer customer = new Customer("first", "last", "tony@cn.bim.com", null);
         entityManager.persist(customer);
 
         List<Customer> findByLastName = customers.findByLastName(customer.getLastName());
