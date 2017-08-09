@@ -3,8 +3,7 @@
 
 <div class="container" id="customers_container" ng-controller="costomerCtl">
 	<div class="navbar-header" >
-		<a class="navbar-brand" onclick="location.reload();" title="refresh">My
-			Devices <span class="glyphicon glyphicon-refresh"></span>
+		<a class="navbar-brand" onclick="location.reload();" title="refresh">Customer<span class="glyphicon glyphicon-refresh"></span>
 		</a>
 	</div>
 
@@ -26,8 +25,8 @@
 				<th class="col-sm-1">ID</th>
 				<th class="col-sm-1">FirstName</th>
 				<th class="col-sm-1">LastName</th>
-				<th class="col-sm-3">Email</th>
-				<th class="col-sm-3">Birthday</th>
+				<th class="col-sm-2">Email</th>
+				<th class="col-sm-2">Birthday</th>
 			 
 				<th class="col-sm-1">&nbsp;</th>
 			</tr>
@@ -46,22 +45,19 @@
 					data-ng-click="onEditClick(o)"><a title="created at: {{o.createDate | date:'yyyy/MM/dd HH:mm:ss'}}">{{o.email}}</a></td>
 				<td>{{o.birthday}}</td>
 				 
-				<td class="col-sm-2 text-center"><a href="#log"
-					data-ng-click="onLogButtonClick(o)" title="view log"><span
-						class="glyphicon glyphicon-eye-open"></span></a>
-
+				<td class="col-sm-2 text-center"> 
 					<div class="btn-group">
 						<span class="glyphicon glyphicon-th-list dropdown-toggle "
 							data-toggle="dropdown"><span class="caret"></span> </span>
 						<ul class="dropdown-menu" role="menu">
+							<li class="divider"></li>
 							<li><a data-toggle="modal" data-target="#dialog_edit"
-								data-ng-click="onEditClick(o)" title="edit"><span
+								data-ng-click="onEditClick(o.id)" title="edit"><span
 									class="glyphicon glyphicon-pencil">&nbsp;Edit</span></a></li>
 							<li><a data-ng-click="remove(o)"><span
 									class="glyphicon glyphicon-remove">&nbsp;</span>Remove</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-play"></span>
-									<span class="glyphicon glyphicon-pause"></span>Heartbeat </a></li>
+							 
 						</ul>
 				</td>
 			</tr>

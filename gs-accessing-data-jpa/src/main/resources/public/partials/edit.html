@@ -4,66 +4,54 @@
 	<div class="modal-dialog modal-lg modal-dialog-mid">
 
 		<!-- Modal content-->
-		<div class="modal-content" >
+		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<h4 class="modal-title">
-					<span class="glyphicon glyphicon-plus"></span> Edit Device
+					<span class="glyphicon glyphicon-plus"></span> Edit Customer
 				</h4>
 			</div>
 			<div class="modal-body">
 				<form class="form-horizontal" role="form">
 					<div class="form-group">
-						<label class="col-sm-4 control-label text-capitalize" for="serial">Serial
-							ID</label>
+						<label class="col-sm-4 control-label text-capitalize" for="txtid">ID</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="serial" type="text"
-								data-ng-model="chargepoint.serial" value="Serial ID">
+							<input class="form-control" id="txtid" type="text"
+								data-ng-model="customer.id" value="ID">
 						</div>
 						<label class="col-sm-4 text-left media-middle">*</label>
 					</div>
 					<div class="form-group">
-						<label for="sel-version"
-							class="col-sm-4 control-label text-capitalize">Version</label>
+						<label for="txtfirstName"
+							class="col-sm-4 control-label text-capitalize">First Name</label>
 						<div class="col-sm-4">
-							<select class="form-control" id="sel-version"
-								data-ng-model="chargepoint.version">
-								<option value="OCPP12">ocpp1.2</option>
-								<option value="OCPP15" selected="selected">ocpp1.5</option>
-								<option value="OCPP20">ocpp2.0</option>
-							</select>
+							<input class="form-control" id="txtfirstName" type="text"
+								data-ng-model="customer.firstName" value="ID">
 						</div>
 						<label class="col-sm-4 control-label">&nbsp;</label>
 					</div>
 
 					<div class="form-group">
-						<label for="sel-conn"
-							class="col-sm-4 control-label text-capitalize">Connectors</label>
+						<label for="txtLastName"
+							class="col-sm-4 control-label text-capitalize">Last Name</label>
 						<div class="col-sm-4">
-							<select class="form-control" id="sel-conn"
-								data-ng-model="connectors"
-								data-ng-click="getConnectors(connectors)">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
+							<input class="form-control" id="txtLastName" type="text"
+								data-ng-model="customer.lastName" value="ID">
 						</div>
 						<label class="col-sm-4 control-label">&nbsp;</label>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-4 control-label text-capitalize"
-							for="centralurl">Central URL</label>
+							for="txtemail">Email</label>
 						<div class="col-sm-4">
-							<input class="form-control" id="centralurl" type="text"
-								data-ng-model="chargepoint.centralURL"
-								value="http://spruce:9081/ocpp15">
+							<input class="form-control" id="txtemail" type="text"
+								data-ng-model="customer.email">
 						</div>
 						<label class="col-sm-4 control-label">&nbsp;</label>
 					</div>
 
 
-					<p class="well well-sm hidden ">INFO:{{chargepoint}}</p>
+					<p class="well well-sm  hidden">INFO:{{customer}}</p>
 				</form>
 
 			</div>
@@ -72,7 +60,7 @@
 				<div class="btn-group">
 					<button type="button" class="btn btn-default " data-dismiss="modal">Cancel</button>
 					<button type="button" class="btn btn-primary"
-						data-ng-click="saveUpdate()" data-dismiss="modal">Save</button>
+						data-ng-click="update(customer.id)" data-dismiss="modal">Save</button>
 				</div>
 			</div>
 		</div>
