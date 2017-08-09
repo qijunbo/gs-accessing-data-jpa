@@ -1,20 +1,16 @@
 'use strict';
 
+var appContext = "./" ;
+
 /* App Module */
 
-var deviceApp = angular.module('deviceApp', [
-    'ngRoute',     
-    'deviceControllers' ,
-    'deviceServices'
+var dreamApp = angular.module('dreamApp', [
+    'ngRoute',
+    'ngResource'
 ]);
 
-deviceApp.directive("w3TestDirective", function() {
-    return {
-        template : "I was made in a directive constructor!"
-    };
-});
 
-deviceApp.config(['$routeProvider', '$locationProvider',   
+dreamApp.config(['$routeProvider', '$locationProvider',   
     function($routeProvider, $locationProvider) {
 
         $routeProvider.
@@ -22,8 +18,8 @@ deviceApp.config(['$routeProvider', '$locationProvider',
                     templateUrl:'partials/ionic.html',
                     controller: 'getChargePointController'
                 }).when('/', {
-                    templateUrl: 'partials/devices.html',
-                    controller: 'listChargePointController'
+                    templateUrl: 'partials/customers.html',
+                    controller: 'costomerCtl'
                 }).when('/save/:id', {
                     templateUrl: 'partials/notify.html',
                     controller: 'saveChargePointController'

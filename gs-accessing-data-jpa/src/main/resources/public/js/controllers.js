@@ -2,96 +2,65 @@
 
 /* Controllers */
 
-var deviceControllers = angular.module('deviceControllers', []);
+dreamApp.controller('costomerCtl', function($scope,$resource) {
+	
+    // var CustomerService = $resource( appContext + 'customer/:id' );
 
-deviceControllers.controller('deviceInitController', [ '$scope',   
-		function deviceInitController($scope) {
-			// when user click the new button, try to input the charge point
-			// information
-			$scope.onNewButtonClick = function() {
-				$scope.chargepoint = {
-					"version" : "OCPP15",
-					"centralURL" : "http://willow:7080/ocppservice/",
-					"connectors" : [ {
-						"id" : 0,
-						"status" : "Available"
-					} ]
-				};
-			};
+	var CustomerService =  $resource(appContext + 'customer/:id', {id:'@_id'},{
+		update: {
+		  method: 'PUT'
+		}
+	});
+	
+	var customer = CustomerService.get({ id: 1 }, function() {
+		$scope.customer = customer;
+		console.log(customer);
+    });
+	
+	
+	var customers = CustomerService.query(function() {
+		$scope.customers = customers;
+		console.log(customers);
+    }); 
+	
+ 
+	$scope.save = function( ) {
+		$scope.customer.id = null;
+		console.log( JSON.stringify($scope.customer) );
+		
+		CustomerService.save({}, $scope.customer, function success(response) {
+			console.log("Customer saved:" + JSON.stringify(response));
+			
+		}, function error(errorResponse) {
+			alert("Connot connect to server.");
+			console.log("Error:" + JSON.stringify(errorResponse));
+		});
+	};
+	
+	$scope.update = function( customerid ) {
+		console.log( JSON.stringify(customerid ) );
+		CustomerService.update({id:customerid}, $scope.customer, function success(response) {
+			console.log("Customer updated:" + JSON.stringify(customerid));
 
-			// when user click the edit button, going to edit, but not yet save.
-			$scope.onEditClick = function(item) {
-				$scope.chargepoint = item;
-			};
-			 
-		} ]);
+		}, function error(errorResponse) {
+			alert("Connot connect to server.");
+			console.log("Error:" + JSON.stringify(errorResponse));
+		});
+	};
+	
+	 
+	$scope.remove = function( customerid ) {
+		console.log( JSON.stringify(customerid ) );
+		alert("You are going to remove :" + customerid);
+		CustomerService.remove({id:customerid}, {}, function success(response) {
+			console.log("Customer removed:" + JSON.stringify(customerid));
 
-deviceControllers.controller('listChargePointController', [ '$scope', 'chargePointService', 
-		function listChargePointController($scope, chargePointService) {
-			$scope.cps = [];
-			chargePointService.get({}, function success(response) {
-				
-				console.log("listChargePoint Success:" + JSON.stringify(response));
-				$scope.cps = response;
+		}, function error(errorResponse) {
+			alert("Connot connect to server.");
+			console.log("Error:" + JSON.stringify(errorResponse));
+		});
+	};
+});
 
-			}, function error(errorResponse) {
-				alert("error");
-				console.log("Error:" + JSON.stringify(errorResponse));
-			});
-
-		} ]);
-
-deviceControllers.controller('saveChargePointController', [ '$scope', 'chargePointService', 
-		function saveChargePointController($scope, chargePointService) {
-			var chargepoint = {
-					"version" : "OCPP15",
-					"serial": "test",
-					"centralURL" : "http://willow:7080/ocppservice/",
-					"connectors" : [ {
-						"id" : 0,
-						"status" : "Available"
-					} ]
-			};
-			chargePointService.save({}, chargepoint, function success(response) {
-				
-				console.log("saveChargePoint Success:" + JSON.stringify(response));
-				$scope.cps = response;
-
-			}, function error(errorResponse) {
-				alert("error");
-				console.log("Error:" + JSON.stringify(errorResponse));
-			});
-
-		} ]);
-
-deviceControllers.controller('getChargePointController', [ '$scope', '$routeParams', 'chargePointIdService',
-		function getChargePointController($scope, $routeParams, chargePointIdService) {
-			var deviceId = $routeParams.id;
-			$scope.chargepoint = {};
-			alert("getChargePoint");
-			chargePointIdService.get({
-				id : deviceId
-			}, function success(response) {
-
-				console.log("getChargePoint Success:" + JSON.stringify(response));
-				$scope.chargepoint = response;
-
-			}, function error(errorResponse) {
-				console.log("Error:" + JSON.stringify(errorResponse));
-			});
-
-		} ]);
 
  
-
-deviceControllers.controller('timeController', [ '$scope',  '$timeout',
-		function timeController($scope, $timeout) {
-			var updateClock = function() {
-				$scope.clock = new Date();
-				$timeout(function() {
-					updateClock();
-				}, 2000);
-			};
-			updateClock();
-
-		} ]);
