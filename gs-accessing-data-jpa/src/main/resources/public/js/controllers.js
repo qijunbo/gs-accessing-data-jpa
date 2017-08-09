@@ -70,12 +70,13 @@ dreamApp.controller('costomerCtl', function($scope, $resource) {
 	};
 
 	$scope.onEditClick = function(customer) {
-		console.log("Edit customer:" + JSON.stringify(customer));
+		console.log("Editting customer:" + JSON.stringify(customer));
 		$scope.customer = customer;
 	}
 	
 	$scope.onNewButtonClick = function( ) {
-		$scope.customer = {};
+		$scope.customer = {"id": $scope.customers.length + 1, "birthday":new Date()};
+		console.log("Adding customer:" + JSON.stringify($scope.customer));
 	}
 
 });

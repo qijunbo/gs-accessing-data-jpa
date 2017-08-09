@@ -23,10 +23,10 @@
 		<thead>
 			<tr>
 				<th class="col-sm-1">ID</th>
-				<th class="col-sm-1">FirstName</th>
-				<th class="col-sm-1">LastName</th>
+				<th class="col-sm-1">First Name</th>
+				<th class="col-sm-1">Last Name</th>
 				<th class="col-sm-2">Email</th>
-				<th class="col-sm-2">Birthday</th>
+				<th class="col-sm-2">Create Date</th>
 			 
 				<th class="col-sm-1">&nbsp;</th>
 			</tr>
@@ -42,8 +42,8 @@
 				<td data-toggle="modal" data-target="#dialog_edit"
 					data-ng-click="onEditClick(o)" class="text-center">{{o.lastName}}</td>
 				<td data-toggle="modal" data-target="#dialog_edit"
-					data-ng-click="onEditClick(o)"><a title="created at: {{o.createDate | date:'yyyy/MM/dd HH:mm:ss'}}">{{o.email}}</a></td>
-				<td>{{o.birthday}}</td>
+					data-ng-click="onEditClick(o)"><a title="contact me: {{o.email}}">{{o.email}}</a></td>
+				<td>{{o.birthday | date:'yyyy/MM/dd HH:mm:ss'}}</td>
 				 
 				<td class="col-sm-2 text-center"> 
 					<div class="btn-group">
@@ -52,7 +52,7 @@
 						<ul class="dropdown-menu" role="menu">
 							<li class="divider"></li>
 							<li><a data-toggle="modal" data-target="#dialog_edit"
-								data-ng-click="onEditClick(o.id)" title="edit"><span
+								data-ng-click="onEditClick(o)" title="edit"><span
 									class="glyphicon glyphicon-pencil">&nbsp;Edit</span></a></li>
 							<li><a data-ng-click="remove(o)"><span
 									class="glyphicon glyphicon-remove">&nbsp;</span>Remove</a></li>
