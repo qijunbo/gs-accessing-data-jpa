@@ -7,14 +7,20 @@ buildscript {
     }
 }
 
+apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'gs-accessing-data-jpa'
     version =  '0.1.0'
+}
+
+war {
+    baseName = 'customer'
 }
 
 repositories {
@@ -32,5 +38,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+	providedRuntime ("org.springframework.boot:spring-boot-starter-tomcat")
+	providedRuntime ("org.apache.tomcat.embed:tomcat-embed-jasper")
+	
 }
 
