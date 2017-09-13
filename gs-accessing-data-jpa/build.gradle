@@ -7,7 +7,7 @@ buildscript {
     }
 }
 
-apply plugin: 'war'
+//apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
@@ -19,9 +19,9 @@ jar {
     version =  '0.1.0'
 }
 
-war {
-    baseName = 'customer'
-}
+// war {
+//     baseName = 'customer'
+// }
 
 repositories {
 	maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
@@ -38,8 +38,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
     testCompile("org.springframework.boot:spring-boot-starter-test")
-	providedRuntime ("org.springframework.boot:spring-boot-starter-tomcat")
-	providedRuntime ("org.apache.tomcat.embed:tomcat-embed-jasper")
+	//providedRuntime ("org.springframework.boot:spring-boot-starter-tomcat")
+	//providedRuntime ("org.apache.tomcat.embed:tomcat-embed-jasper")
 	
 }
 
