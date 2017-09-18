@@ -1,0 +1,29 @@
+server:    
+    port: 80
+    session:
+        timeout: 1800
+
+datasource:   
+    url: jdbc:mysql://192.168.102.132:3306/lims_cloud
+    username: root
+    password: sunway123#
+    driver-class-name: com.mysql.jdbc.Driver
+    
+    #url: jdbc:h2:mem:activiti;DB_CLOSE_DELAY=1000
+    #username: sa
+    #password: 
+    #driver-class-name: org.h2.Driver
+    
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+# Show or not log for each sql query
+jpa:  
+    show-sql: true
+    hibernate:
+        ddl-auto: update
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+        hibernate:
+             dialect: org.hibernate.dialect.MySQL5Dialect
+     
