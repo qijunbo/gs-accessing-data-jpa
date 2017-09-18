@@ -1,0 +1,9 @@
+server:    
+    port: 80
+    session:
+        timeout: 1800
+spring: 
+  jpa:  
+    show-sql: true
+
+     
