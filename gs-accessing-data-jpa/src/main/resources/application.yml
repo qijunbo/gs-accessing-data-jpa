@@ -4,5 +4,5 @@ server:
         timeout: 1800
 spring:
   profiles:
-    active: prod  # prod  and dev;
+    active: dev  # prod  and dev;
      
