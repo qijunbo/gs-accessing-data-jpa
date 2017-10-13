@@ -16,7 +16,7 @@ import com.example.jpa.repository.Customer;
 import com.example.jpa.repository.CustomerRepository;
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/api/customer")
 public class CustomerController {
 
 	@Autowired
